@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{%block header%}
+<script src={% static "script\jquery.min.js" %}></script>
+<script src={% static "script\jquery.validate.min.js" %}></script>
+ <script>
+
+  // When the browser is ready...
+  $(function() {
+        $.validator.addMethod("regx", function(value, element, regexpr) {
+            return regexpr.test(value);
+        }, "");
+
+    $("#register-form").validate({
+        // Specify the validation rules
+        rules: {
+            txtfName: {
+                required: true,
+                regx:/^[a-zA-Z ,.-]+$/
+            },
+            txtlName:{
+                required: true,
+                regx:/^[a-zA-Z ,.-]+$/
+            },
+            txtuserName:{
+                required: true,
+                regx:/^[a-zA-Z0-9]+([._]?[a-zA-Z0-9]+)*$/
+            },
+            txtEmail: {
+                email: true,
+                regx:/^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]{2,5}$/
+            },
+            txtpassword: {
+                required: true,
+                minlength: 6
+            },
+            txtConfPassword: {
+                equalTo: '#txtpassword'
+            },
+            txtAddress: {
+                regx:/^[a-zA-Z0-9\s,'-/.]*$/
+            },
+        },
+
+        // Specify the validation error messages
+        messages: {
+            txtfName: {
+                required: "Please enter your first name",
+                regx: "Please enter a valid first name"
+            },
+            txtuserName: {
+                required: "Please enter a user name",
+                regx: "Please enter a valid user name"
+            },
+            txtlName:  {
+                required: "Please enter your last name",
+                regx: "Please enter a valid last name"
+            },
+            txtpassword: {
+                required: "Please provide a password",
+                minlength: "Your password must be at least 6 characters long"
+            },
+            txtConfPassword: {
+                equalTo: "Password and confirm password should match",
+            },
+            txtEmail:  {
+                regx: "Please enter a valid email"
+            },
+            txtAddress:  {
+                regx: "Please enter a valid address"
+            },
+        } ,
+
+        submitHandler: function(form) {
+            form.submit();
+        }
+    });
+
+  });
+
+</script>
+{% endblock %}
+{% block detail %}
+    <form method="post" id="register-form" action="/myaccount/">
+    {% csrf_token %}
+    <h1>My Account</h1><br/>
+    <table width="100%" cellspacing="0" cellpadding="3" style="margin: -10px 0px 0px 0px;">
+        <tr>
+            <td colspan="4" style="vertical-align: top;"><br/><br/>
+            </b>Please Regester by filling out this short form and use free Auction service.
+            Thank you.</td>
+        </tr>
+        <tr>
+            <td valign="top" colspan="4" ><font size="2" color="#f5f5f5">Fields marked with asterisk(<font size="2" color="red">*</font>) are mandatory.</font><br/></td>
+        </tr>
+        <tr>
+            <td width="20%" valign="top" style="padding-left: 60px">First Name:<font color="red">*</font></td>
+            <td width="30%" valign="top"><input autocomplete="off" name="txtfName" class="input" value="{{ fname }}" MaxLength="20"></td>
+            <td width="20%" valign="top" style="padding-left: 60px">Last Name:<font color="red">*</font></td>
+            <td  width="30%" valign="top" ><input autocomplete="off" name="txtlName" value="{{ lname }}" class="input" MaxLength="20"></td>
+        </tr>
+        <tr>
+            <td valign="top" style="padding-left: 60px">User Name:<font color="red">*</font></td>
+            <td valign="top"><input readonly="readonly" autocomplete="off" name="txtuserName" class="input" value="{{ username }}" MaxLength="20"></td>
+            <td valign="top" style="padding-left: 60px">Password:<font color="red">*</font></td>
+            <td valign="top"><input autocomplete="off" name="txtpassword" id="txtpassword" type="password" value="********" class="input" MaxLength="20"></td>
+        </tr>
+        <tr>
+            <td valign="top" style="padding-left: 60px">Confirm Password:<font color="red">*</font></td>
+            <td valign="top"><input autocomplete="off" name="txtConfPassword" type="password" class="input" value="********" MaxLength="20"></td>
+            <td valign="top" style="padding-left: 60px">Email:<font color="red">*</font></td>
+            <td valign="top"><input autocomplete="off" name="txtEmail" class="input" MaxLength="20" value="{{ email }}"></td>
+        </tr>
+        <tr>
+            <td valign="top" style="padding-left: 60px">Phone:</td>
+            <td valign="top"><input autocomplete="off" name="txtphone" class="input" MaxLength="20" value="{{ phone }}"></td>
+            <td valign="top" style="padding-left: 60px">Address:</td>
+            <td valign="top"><textarea name="txtAddress" autocomplete="off" class="textarea" size="20" MaxLength="200" >{{ address }}</textarea></td>
+        </tr>
+        <tr>
+            <td align="center" colspan="4" ><font size="2" color="red">{{ error }}</font></td>
+        </tr>
+        <tr>
+            <td valign="top" colspan="4" align="center" >
+                <input type="submit" name="btnSave" value="Update" class="button">&nbsp;&nbsp;
+                <a href="/allauctions/"><input name="btnClose" type="button" class="button" value="Close" /></a>
+            </td>
+        </tr>
+        <tr>
+            <td align="center" colspan="4" >&nbsp;</td>
+        </tr>
+    </table>
+    </form>
+{% endblock %}

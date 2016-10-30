@@ -1,0 +1,132 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-10-24 03:09+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\templates\footer.html:5
+#, fuzzy
+#| msgid "My Auctions"
+msgid "Search  Auctions"
+msgstr "Mina Auktioner"
+
+#: .\templates\footer.html:6
+msgid "Please enter action title to search"
+msgstr "Ange actionspel för att söka"
+
+#: .\templates\footer.html:11
+msgid "Auction Title"
+msgstr "Auktionsnamn"
+
+#: .\templates\footer.html:13
+msgid "Go"
+msgstr "Gå"
+
+#: .\templates\header.html:6
+msgid "Welcome"
+msgstr "Välkommen"
+
+#: .\templates\header.html:6
+msgid "Logout"
+msgstr "Logga ut"
+
+#: .\templates\header.html:6
+msgid "Login"
+msgstr "Logga in"
+
+#: .\templates\header.html:13
+msgid "English"
+msgstr "Engelska"
+
+#: .\templates\header.html:14
+msgid "Finnish"
+msgstr "Finska"
+
+#: .\templates\header.html:15
+msgid "Swedish"
+msgstr "Svenska"
+
+#: .\templates\header.html:30 .\templates\index.html:5
+msgid "Home"
+msgstr "Hem"
+
+#: .\templates\header.html:31
+msgid "All Auctions"
+msgstr "Alla Auktioner"
+
+#: .\templates\header.html:32
+msgid "My Auctions"
+msgstr "Mina Auktioner"
+
+#: .\templates\header.html:33
+msgid "Register"
+msgstr "Register"
+
+#: .\templates\header.html:35
+msgid "My Account"
+msgstr "Mitt konto"
+
+#: .\templates\header.html:36
+msgid "Contect Us"
+msgstr "Contect oss"
+
+#: .\templates\index.html:10
+msgid "Mobiles & Tablets"
+msgstr "Mobiler och pekdatorer"
+
+#: .\templates\index.html:13
+msgid "Electronics & Computers"
+msgstr "Elektronik & Datorer"
+
+#: .\templates\index.html:16
+msgid "Vehicles"
+msgstr "fordon"
+
+#: .\templates\index.html:21
+msgid "Home & Furniture"
+msgstr "Hem och möbler"
+
+#: .\templates\index.html:24
+msgid "Pets"
+msgstr "Husdjur"
+
+#: .\templates\index.html:27
+msgid "Books & Sport"
+msgstr "Böcker & Sport"
+
+#: .\templates\index.html:32
+msgid "Fashion & Beauty"
+msgstr "Mode & Skönhet"
+
+#: .\templates\index.html:35
+msgid "Kids & Baby Products"
+msgstr "Barn & Bebis produkter"
+
+#: .\templates\index.html:38
+msgid "Services"
+msgstr "Tjänster"
+
+#: .\templates\index.html:43
+msgid "Jobs"
+msgstr "Jobb"
+
+#: .\templates\index.html:46
+msgid "Real Estate"
+msgstr "Fastighet"
+
+#: .\templates\index.html:49
+msgid "Others"
+msgstr "Annat"

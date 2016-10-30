@@ -1,0 +1,41 @@
+{% load i18n %}
+<div class="wrapper">
+    <div style="position:relative;	margin:0 auto 0;display:block;	width:920px;padding:5px 20px 15px 20px;color:#DBDBDB;font-family:Georgia,Times New Roman Times, serif;">
+        <div id="Div2" style="text-align:right;color:#FDC609;">
+           <ul style="list-style:none;color:#FDC609;">
+                <li style="display:inline;"><a style="color:#DBDBDB;" href="/login/">{% if user.is_authenticated %} {% trans _("Welcome")%} {{ user.first_name}} {{user.last_name }} ! <br/>{% trans _("Logout") %} {% else %}{% trans _("Login") %}{% endif %}</a></li>
+                <li style="display:inline;">
+
+                    <form name="LangForm" method="post" action="/setlang/">
+
+                    {% csrf_token %}
+                    <select class="input" name="lang_code" id="lang_code" style="width: 100px" onchange="document.LangForm.submit();">
+                    <option {% if request.session.lang_code == 'en' %} selected="selected"{% endif %} value="en">{% trans _("English") %}</option>
+                    <option {% if request.session.lang_code == 'fi' %} selected="selected"{% endif %} value="fi">{% trans _("Finnish") %}</option>
+                    <option {% if request.session.lang_code == 'sv' %} selected="selected"{% endif %} value="sv">{% trans _("Swedish") %}</option>
+                  </select></form>
+                </li>
+           </ul>
+         </div>
+  </div>
+</div>
+<div class="wrapper">
+  <div id="header">
+    <div id="logo">
+     <a href="/" style="color:white"> <h1>YAAS</h1>
+      <p>YAAS Web Application</p></a>
+    </div>
+    <div id="topnav">
+      <ul>
+        <li class="{{ Homeactive }}"><a href="/">{% trans _("Home") %}</a></li>
+        <li class="{{ AllAuctionsactive }}"><a href="/allauctions/">{% trans _("All Auctions") %}</a></li>
+        {% if user.is_authenticated %}<li class="{{ Auctionsactive }}"><a href="/myauctions/">{% trans _("My Auctions") %}</a></li>{% endif %}
+        {% if not user.is_authenticated %}<li class="{{ Registeractive }}"><a href="/register/">{% trans _("Register") %}</a></li>{% endif %}
+        {% if user.is_authenticated %}
+            <li class="{{ myAccountactive }}"><a href="/myaccount/">{% trans _("My Account") %}</a></li>
+        {% endif %}
+      </ul>
+    </div>
+    <br class="clear" />
+  </div>
+</div>

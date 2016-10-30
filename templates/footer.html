@@ -1,0 +1,19 @@
+{% load i18n %}
+<div class="wrapper">
+  <div id="footer">
+    <div id="newsletter">
+      <h2>{% trans _("Search  Auctions") %}</h2>
+      <p>{% trans _("Please enter action title to search") %}</p>
+      <form action="/allauctions/" method="post">
+       {% csrf_token %}
+        <fieldset>
+          <legend>Search Auction</legend>
+          <input type="text" name="txttitle" value="{% trans _("Auction Title") %}" onfocusout="this.value=(this.value=='')? '{% trans _("Auction Title") %}' : this.value ;"  onfocus="this.value='{% trans _("Auction Title") %}'? '' : this.value ;" />
+          <input type="hidden" name="ddlcategory" value="0"/>
+          <input type="submit" name="news_go" id="news_go" value="{% trans _("Go") %}" />
+        </fieldset>
+      </form>
+    </div>
+    <br class="clear" />
+  </div>
+</div>

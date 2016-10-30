@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block detail %}
+    <h1>My Auctions</h1><br/>
+    <div align="center"><font color="green">{{ Msg }}</font><br/></div>
+    <a href="/createauction/"><input class="button" style="padding: 3px 0;" value="Create Auction"/></a><br/><br/>
+    <table border="1px solid" width="40%">
+        <tr>
+            <td>
+                <h7><b>Title</b></h7>
+            </td>
+             <td>
+                <h7><b>Min Price</b></h7>
+            </td>
+             <td>
+                <h7><b>Top Bid</b></h7>
+            </td>
+             <td>
+                <h7><b>Category</b></h7>
+            </td>
+             <td>
+                <h7><b>Status</b></h7>
+            </td>
+             <td>
+                <h7><b>Deadline</b></h7>
+            </td>
+             <td>
+                <h7><b>Created Date</b></h7>
+            </td>
+            <td>
+                <h7><b>Action</b></h7>
+            </td>
+        </tr>
+    {% for auction in auctions %}
+        <tr>
+        <td>
+         {{ auction.title }}
+        </td>
+        <td>
+            {{ auction.minPrice }}
+        </td>
+        <td>
+            {{ auction.topBid }}
+        </td>
+         <td>
+            {{ auction.category.typeName }}
+        </td>
+        <td>
+           {% if auction.status == 1 %} Active {% elif auction.status == 2 %} Resolved {% elif auction.status == 3 %} Banned {% endif %}
+        </td>
+        <td>
+            {{ auction.deadline }}
+        </td>
+        <td>
+            {{ auction.createdDate }}
+        </td>
+         <td>
+            <a href="/viewauction/{{  auction.id }}/" >View </a>
+            <a href="/editauction/{{  auction.id }}/" >Edit</a>
+        </td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

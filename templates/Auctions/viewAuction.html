@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block detail %}
+    <h1>View Auction</h1><br/>
+    <div align="center"><font color="green">{{ Msg }}</font><br/></div>
+    <a href="/createauction/"><input class="button" style="padding: 3px 0;" value="Create Auction"/></a><br/><br/>
+    <h6>Title:</h6>
+    &nbsp;&nbsp;&nbsp;&nbsp;<h7>{{ auction.title }}</h7>
+    <h6>Category:</h6>
+    &nbsp;&nbsp;&nbsp;&nbsp;<h7>{{ category }}</h7>
+    <h6>Min Price:</h6>
+    &nbsp;&nbsp;&nbsp;&nbsp;<h7>{{ auction.minPrice }}</h7>
+    <h6>Top Bid:</h6>
+    &nbsp;&nbsp;&nbsp;&nbsp;<h7>{{ auction.topBid }}</h7>
+    <h6>Status:</h6>
+    &nbsp;&nbsp;&nbsp;&nbsp;<h7>{% if auction.status == 1 %} Active {% elif auction.status == 2 %} Resolved {% elif auction.status == 3 %} Banned {% endif %}</h7>
+    <h6>Deadline:</h6>
+    &nbsp;&nbsp;&nbsp;&nbsp;<h7>{{ auction.deadline }}</h7>
+    <h6>Created Date:</h6>
+    &nbsp;&nbsp;&nbsp;&nbsp;<h7>{{ auction.createdDate }}</h7>
+    <h6>Auction Owner:</h6>
+    &nbsp;&nbsp;&nbsp;&nbsp;<h7>{{ auction.seller.username  }}</h7>
+    <h6>Auction Winner:</h6>
+    &nbsp;&nbsp;&nbsp;&nbsp;<h7>{{ auction.winner  }}</h7>
+    <h6>Description:</h6>
+    &nbsp;&nbsp;&nbsp;&nbsp;<h7>{{ auction.itemDescription  }}</h7>
+    <br/><br/>
+    <h1>All Bids for this Auction</h1><br/>
+        <table width="40%" border="1px solid">
+         <tr>
+            <td>
+                <h7><b>Name</b></h7>
+            </td>
+            <td>
+                <h7><b>Bid</b></h7>
+            </td>
+             <td>
+                <h7><b>User Email</b></h7>
+            </td>
+             <td>
+                <h7><b>Date</b></h7>
+            </td>
+              <td>
+                <h7><b>Comment</b></h7>
+            </td>
+
+        </tr>
+        {% for auctionbid in auctionAllbids %}
+            <tr>
+            <td>
+                <h7>{{ auctionbid.bidUser.last_name }} , {{ auctionbid.bidUser.first_name }}</h7>
+            </td>
+            <td>
+                <h7>{{ auctionbid.amount }}</h7>
+            </td>
+            <td>
+                <h7>{{ auctionbid.bidUser.email }}</h7>
+            </td>
+            <td>
+                <h7>{{ auctionbid.bidDate }}</h7>
+            </td>
+            <td>
+                <h7>{{ auctionbid.comment }}</h7>
+            </td>
+            </tr>
+         {% endfor %}
+        </table>
+{% endblock %}

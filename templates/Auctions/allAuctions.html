@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+ {%block header%}
+     <script src={% static "script/jquery-1.11.2.js" %}></script>
+     <script src={% static "script/jquery.min.js" %}></script>
+     <script src={% static "script/jquery.validate.min.js" %}></script>
+     <script>
+     $(function() {
+        $("#btnClear").click( function()
+           {
+            $("input[class=input]").val('');
+            $('select[name="ddlcategory"]').find('option[value="0"]').attr("selected",true);
+
+           }
+        );
+     });
+     </script>
+ {% endblock %}
+{% block detail %}
+    <h1>All Auctions</h1><br/>
+    <div align="center"><font color="green">{{ Msg }}</font><br/></div>
+    <div align="center"><font color="red">{{ error }}</font><br/></div>
+    <a href="/createauction/"><input class="button" style="padding: 3px 0;" value="Create Auction"/></a><br/><br/>
+    <form method="post" action="" id="searchAuction-form" novalidate="novalidate">
+    {% csrf_token %}
+        <table width="100%" cellspacing="0"  cellpadding="3" style="margin: -10px 0px 0px 0px;">
+        <tr >
+            <td colspan="4">
+                &nbsp;
+            </td>
+        </tr>
+         <tr>
+            <td width="20%" valign="top" style="padding-left: 60px">Auction Title:</td>
+            <td width="30%" valign="top"><input autocomplete="off" name="txttitle" class="input" value="{{ title }}" MaxLength="20"></td>
+            <td valign="top" style="padding-left: 60px">Category:</td>
+            <td valign="top"><select  class="input" name="ddlcategory" id="ddlcategory" style="width:238px">
+                <option value="0">Select</option>
+                {% for category in categories %}
+                    <option {% if category.id == categoryid %} selected="selected"{% endif %} value="{{ category.id }}">{{ category.typeName }}</option>
+                {% endfor %}
+            </select></td>
+         </tr>
+        <tr >
+            <td colspan="4">
+                &nbsp;
+            </td>
+        </tr>
+         <tr>
+            <td valign="top" colspan="4" align="center" >
+                <input type="submit" name="btnSearch" value="Search" name="btnSearch" class="button">&nbsp;&nbsp;
+                <input name="btnClear" id="btnClear" type="button" class="button" value="Clear" />
+            </td>
+        </tr>
+     </table>
+    </form>
+    <br/><br/>
+    <div class="pagination">
+    <span class="step-links">
+        {% if auctions.has_previous %}
+            <a style="color: white" href="?page={{ auctions.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ auctions.number }} of {{ auctions.paginator.num_pages }}.
+        </span>
+
+        {% if auctions.has_next %}
+            <a style="color: white"  href="?page={{ auctions.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>
+    <table border="1px solid" width="40%">
+        <tr>
+            <td>
+                <h7><b>Title</b></h7>
+            </td>
+            {% if user.is_superuser %}
+            <td>
+                <h7><b>User</b></h7>
+            </td>
+            {% endif %}
+            <td>
+                <h7><b>Winner</b></h7>
+            </td>
+            <td>
+                <h7><b>Min Price</b></h7>
+            </td>
+             <td>
+                <h7><b>Top Bid</b></h7>
+            </td>
+             <td>
+                <h7><b>Category</b></h7>
+            </td>
+             <td>
+                <h7><b>Status</b></h7>
+            </td>
+             <td>
+                <h7><b>Deadline</b></h7>
+            </td>
+             <td>
+                <h7><b>Created Date</b></h7>
+            </td>
+            <td>
+                <h7><b>Action</b></h7>
+            </td>
+        </tr>
+    {% for auction in auctions %}
+        <tr>
+        <td>
+         {{ auction.title }}
+        </td>
+        {% if user.is_superuser %}
+            <td>
+                <a href="/viewuser/{{  auction.id }}/" >User Name</a>
+            </td>
+        {% endif %}
+        <td>
+            {{ auction.winner }}
+        </td>
+        <td>
+            {{ auction.minPrice }}
+        </td>
+        <td>
+            {{ auction.topBid }}
+        </td>
+         <td>
+            {{ auction.category.typeName }}
+        </td>
+        <td>
+           {% if auction.status == 1 %} Active {% elif auction.status == 2 %} Resolved {% elif auction.status == 3 %} Banned {% endif %}
+        </td>
+        <td>
+            {{ auction.deadline }}
+        </td>
+        <td>
+            {{ auction.createdDate }}
+        </td>
+         <td>
+           {% if user.is_authenticated %}
+               {% if user.is_superuser %}
+                   <a href="/viewauction/{{  auction.id }}/" >View</a>
+                   {% if auction.status != 3 %}
+                    <a href="/banauction/{{  auction.id }}/" >Ban this Auction</a>
+                   {% endif %}
+               {% else %}
+                   {% if auction.seller != user and auction.status == 1 %} <a href="/viewauction/{{  auction.id }}/" >View</a>&nbsp;&nbsp;&nbsp;<a href="/bidauction/{{  auction.id }}/" >Bid on this Auction </a>
+                   {% elif auction.seller == user %} <a href="/viewauction/{{  auction.id }}/" >View</a> (My Auction)
+                   {% else %}<a href="/viewauction/{{  auction.id }}/" >View</a>
+                   {% endif %}
+               {% endif %}
+           {% else %} <a href="/viewauction/{{  auction.id }}/" >View</a>&nbsp;&nbsp;&nbsp;<a href="/bidauction/{{  auction.id }}/" >Bid on this Auction </a>
+           {% endif %}
+        </td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

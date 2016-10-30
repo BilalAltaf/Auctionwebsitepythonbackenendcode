@@ -1,0 +1,27 @@
+{% extends "loginbase.html" %}
+ {%block header%}
+ {% load staticfiles %}
+ <link rel="stylesheet" type="text/css" href="{% static "style\login.css" %}">
+ {% endblock %}
+{% block detail %}
+    <form method="post" action="">
+    {% csrf_token %}
+    <div id="containerlogin">
+        <label for="txtuserName">Username:</label>
+        <input type="text" id="txtuserName" name="txtuserName">
+        <label for="password">Password:</label>
+        <input type="password" id="txtpassword" name="txtpassword">
+        <div style="color:red" align="center">
+            {{ errormessage }}
+        </div>
+        <div id="lower">
+            <br/>
+            <div><label class="check">don't have account?</label><a class="check" style="background: #ecf2f5 none repeat scroll 0 0;color:#1d5987" href="/register/">Regester</a>
+            <input type="submit" value="Login"></div>
+
+        </div><!--/ lower-->
+
+    </div><!--/ container-->
+    </form>
+            <!-- End Page Content -->
+{% endblock %}

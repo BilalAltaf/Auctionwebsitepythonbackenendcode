@@ -1,0 +1,132 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-10-24 03:09+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\templates\footer.html:5
+#, fuzzy
+#| msgid "My Auctions"
+msgid "Search  Auctions"
+msgstr "My huutokaupat"
+
+#: .\templates\footer.html:6
+msgid "Please enter action title to search"
+msgstr "Anna toimintapeli etsiä"
+
+#: .\templates\footer.html:11
+msgid "Auction Title"
+msgstr "huutokaupan otsikko"
+
+#: .\templates\footer.html:13
+msgid "Go"
+msgstr "mennä"
+
+#: .\templates\header.html:6
+msgid "Welcome"
+msgstr "Tervetuloa"
+
+#: .\templates\header.html:6
+msgid "Logout"
+msgstr "Kirjautua ulos"
+
+#: .\templates\header.html:6
+msgid "Login"
+msgstr "Kirjaudu sisään"
+
+#: .\templates\header.html:13
+msgid "English"
+msgstr "Englanti"
+
+#: .\templates\header.html:14
+msgid "Finnish"
+msgstr "Suomi"
+
+#: .\templates\header.html:15
+msgid "Swedish"
+msgstr "Ruotsi"
+
+#: .\templates\header.html:30 .\templates\index.html:5
+msgid "Home"
+msgstr "Etusivu"
+
+#: .\templates\header.html:31
+msgid "All Auctions"
+msgstr "kaikki huutokaupat"
+
+#: .\templates\header.html:32
+msgid "My Auctions"
+msgstr "My huutokaupat"
+
+#: .\templates\header.html:33
+msgid "Register"
+msgstr "Rekisteröidy"
+
+#: .\templates\header.html:35
+msgid "My Account"
+msgstr "Tilini"
+
+#: .\templates\header.html:36
+msgid "Contect Us"
+msgstr "Yhteystietomme"
+
+#: .\templates\index.html:10
+msgid "Mobiles & Tablets"
+msgstr "Kännykkää ja Tabletit"
+
+#: .\templates\index.html:13
+msgid "Electronics & Computers"
+msgstr "Elektroniikka & Tietokoneet"
+
+#: .\templates\index.html:16
+msgid "Vehicles"
+msgstr "ajoneuvot"
+
+#: .\templates\index.html:21
+msgid "Home & Furniture"
+msgstr "Koti ja huonekalut"
+
+#: .\templates\index.html:24
+msgid "Pets"
+msgstr "Lemmikkieläimet"
+
+#: .\templates\index.html:27
+msgid "Books & Sport"
+msgstr "Kirjat & Sport"
+
+#: .\templates\index.html:32
+msgid "Fashion & Beauty"
+msgstr "Muoti ja kauneus"
+
+#: .\templates\index.html:35
+msgid "Kids & Baby Products"
+msgstr "Lapset & Baby tuotteet"
+
+#: .\templates\index.html:38
+msgid "Services"
+msgstr "Palvelut"
+
+#: .\templates\index.html:43
+msgid "Jobs"
+msgstr "Työpaikat"
+
+#: .\templates\index.html:46
+msgid "Real Estate"
+msgstr "kiinteistöt"
+
+#: .\templates\index.html:49
+msgid "Others"
+msgstr "Muut"

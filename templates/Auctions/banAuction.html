@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block detail %}
+    <form method="post" action="/banauction/{{ auctionId }}/" id="confirmbid-form" novalidate="novalidate">
+    {% csrf_token %}
+    <h1>Confirm Bid</h1><br/>
+    <table width="100%" cellspacing="0" cellpadding="3" style="margin: -10px 0px 0px 0px;">
+        <tr>
+            <td colspan="4" style="vertical-align: top;"><br/><br/>
+            <b>Are you sure you want to Ban this Auction?</b></td>
+        </tr>
+        <tr>
+            <td valign="top" colspan="4" align="center" >
+                <input type="submit" name="btnSave" value="Confirm" name="submit" class="button">&nbsp;&nbsp;
+                <a href="/allauctions/"><input name="btnClear" type="button" class="button" value="Cancel" /></a>
+            </td>
+        </tr>
+         <tr>
+            <td valign="top" colspan="4" >
+                <input type="hidden" name="auctionId" value="{{ auctionId }}">
+                <input type="hidden" name="signature" value="{{ signature }}">
+            </td>
+        </tr>
+        <tr>
+            <td align="center" colspan="4" ><font size="2" color="red">{{ error }}</font><font size="2" color="green">{{ msg }}</font></td>
+        </tr>
+        <tr>
+            <td align="center" colspan="4" >&nbsp;</td>
+        </tr>
+    </table>
+    </form>
+{% endblock %}

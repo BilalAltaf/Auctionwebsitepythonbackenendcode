@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% block detail %}
+<h1>{% trans _("Home") %}</h1>
+    {{ Msg }}
+    <table style="border: dotted">
+        <tr>
+            <td width="33%" align="center">
+             <a href="/allauctions/1/">   <img src="{% static "images\iphone_360.jpg" %}" alt="{% trans _("Mobiles & Tablets") %}" height="100" width="70"><br/>{% trans _("Mobiles & Tablets") %}</a>
+            </td>
+            <td width="33%"  align="center">
+               <a href="/allauctions/2/"> <img src="{% static "images\laptop.jpg" %}" alt="{% trans _("Electronics & Computers") %}" height="100" width="180"><br/>{% trans _("Electronics & Computers") %}</a>
+            </td>
+             <td width="34%"  align="center">
+               <a href="/allauctions/3/"> <img src="{% static "images\Car.jpg" %}" alt="{% trans _("Vehicles") %}" height="100" width="180"><br/>{% trans _("Vehicles") %}</a>
+            </td>
+        </tr>
+        <tr>
+            <td width="33%" align="center">
+               <a href="/allauctions/4/"> <img src="{% static "images\HomeFurniture.jpg" %}" alt="{% trans _("Home & Furniture") %}" height="100" width="180"><br/>{% trans _("Home & Furniture") %}</a>
+            </td>
+            <td width="33%"  align="center">
+               <a href="/allauctions/5/"> <img src="{% static "images\3127765.large.jpg" %}" alt="{% trans _("Pets") %}" height="100" width="180"><br/>{% trans _("Pets") %}</a>
+            </td>
+             <td width="34%"  align="center">
+               <a href="/allauctions/6/"> <img src="{% static "images\balanced-books.jpg" %}" alt="{% trans _("Books & Sport") %}" height="100" width="140"><br/>{% trans _("Books & Sport") %}</a>
+            </td>
+        </tr>
+        <tr>
+            <td width="33%" align="center">
+              <a href="/allauctions/7/">  <img src="{% static "images\fashion-and-beauty.jpg" %}" alt="{% trans _("Fashion & Beauty") %}" height="80" width="180"><br/>{% trans _("Fashion & Beauty") %}</a>
+            </td>
+            <td width="33%"  align="center">
+              <a href="/allauctions/8/">  <img src="{% static "images\kids.jpg" %}" alt="{% trans _("Kids & Baby Products") %}" height="100" width="120"><br/>{% trans _("Kids & Baby Products") %}</a>
+            </td>
+             <td width="34%"  align="center">
+              <a href="/allauctions/9/">  <img src="{% static "images\Services.jpg" %}" alt="{% trans _("Services") %}" height="100" width="140"><br/>{% trans _("Services") %}</a>
+            </td>
+        </tr>
+        <tr>
+            <td width="33%" align="center">
+              <a href="/allauctions/10/">  <img src="{% static "images\Jobs-Graphic.jpg" %}" alt="{% trans _("Jobs") %}" height="80" width="180"><br/>{% trans _("Jobs") %}</a>
+            </td>
+            <td width="33%"  align="center">
+               <a href="/allauctions/11/"> <img src="{% static "images\Realestate.jpg" %}" alt="{% trans _("Real Estate") %}" height="100" width="150"><br/>{% trans _("Real Estate") %}</a>
+            </td>
+             <td width="34%"  align="center">
+               <a href="/allauctions/12/"> <img src="{% static "images\others.jpg" %}" alt="{% trans _("Others") %}" height="100" width="150"><br/>{% trans _("Others") %}</a>
+            </td>
+        </tr>
+    </table>
+
+  </div>
+</div>
+{% endblock %}
